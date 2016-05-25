@@ -50,7 +50,7 @@ public class Punktezettel {
 				if (würfel[j] == würfel[i + j])
 					count++;
 			}
-			if (count == 3)
+			if (count >= 3)
 				for (int i = 0; i < würfel.length; i++) {
 					werte[6] += würfel[i];
 				}
