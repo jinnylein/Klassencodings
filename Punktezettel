@@ -44,7 +44,7 @@ public class Punktezettel {
 		// 3er Pasch
 		int count;
 
-		for (int j = 0; j < würfel.length; j++) {
+		for (int j = 0; j < (würfel.length - 2); j++) {
 			count = 0;
 			for (int i = 0; i < (würfel.length - j); i++) {
 				if (würfel[j] == würfel[i + j])
