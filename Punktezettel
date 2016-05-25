@@ -1,3 +1,168 @@
 public class Punktezettel {
-    //TODO @Roy finishen und einfügen
+
+	private String name;
+
+	private int Einser;
+	private int Zweier;
+	private int Dreier;
+	private int Vierer;
+	private int Fünfer;
+	private int Sechser;
+	private boolean Bonus;
+	private int Punkteoben;
+
+	private int Kniffelbonus;
+
+	private int DreierPasch;
+	private int ViererPasch;
+	private boolean FullHouse;
+	private boolean kleineStr;
+	private boolean großeStr;
+	private boolean Kniffel;
+	private int Chance;
+	private int Punkteunten;
+	private int Gesamtpunkte;
+
+	public Punktezettel(String name) {
+		super();
+		this.name = name;
+	}
+
+	public int[] getPreview(int würfel[]) { // Methode die zum Anzeigen der
+											// Preview währen des Spielens und
+											// vorm auswählen angezeigt wird
+		int[] werte = new int[13];
+
+		for (int j = 0; j < 6; j++) {
+			for (int i = 0; i < würfel.length; i++) {
+				if (würfel[i] == (j + 1)) {
+					werte[j] += (j + 1); // oberer Teil wird befüllt
+				}
+			}
+		}
+
+		// 3er Pasch
+		int count;
+
+		for (int j = 0; j < würfel.length; j++) {
+			count = 0;
+			for (int i = 0; i < (würfel.length - j); i++) {
+				if (würfel[j] == würfel[i + j])
+					count++;
+			}
+			if (count == 3)
+				for (int i = 0; i < würfel.length; i++) {
+					werte[6] += würfel[i];
+				}
+				break;
+		}
+
+		return werte;
+	}
+
+	private void setPunkteoben(int punkteoben) {
+		Punkteoben = punkteoben;
+		if (Punkteoben >= 63) {
+			if (Bonus == false) {
+				Bonus = true;
+				Punkteoben += 35;
+			}
+		}
+	}
+
+	private void setPunkteunten(int punkteunten) {
+		Punkteunten = punkteunten;
+	}
+
+	private void setGesamtpunkte(int gesamtpunkte) {
+		Gesamtpunkte = gesamtpunkte;
+	}
+
+	public void setEinser(int einser[]) {
+		for (int i = 0; i < einser.length; i++) {
+			if (einser[i] == 1) {
+				Einser += 1;
+			}
+		}
+	}
+
+	public void setZweier(int zweier[]) {
+		for (int i = 0; i < zweier.length; i++) {
+			if (zweier[i] == 2) {
+				Zweier += 2;
+			}
+		}
+	}
+
+	public void setDreier(int dreier[]) {
+		for (int i = 0; i < dreier.length; i++) {
+			if (dreier[i] == 3) {
+				Dreier += 3;
+			}
+		}
+	}
+
+	public void setVierer(int vierer[]) {
+		for (int i = 0; i < vierer.length; i++) {
+			if (vierer[i] == 4) {
+				Vierer += 4;
+			}
+		}
+	}
+
+	public void setFünfer(int fünfer[]) {
+		for (int i = 0; i < fünfer.length; i++) {
+			if (fünfer[i] == 5) {
+				Fünfer += 5;
+			}
+		}
+	}
+
+	public void setSechser(int sechser[]) {
+		for (int i = 0; i < sechser.length; i++) {
+			if (sechser[i] == 6) {
+				Sechser += 6;
+			}
+		}
+	}
+
+	// public void setKniffelbonus(int kniffelbonus) { //TODO für den fall dass
+	// 50 extrapunkte gewonnen werden für 2. oder weiteres kniffel
+	// Kniffelbonus = kniffelbonus;
+	// }
+
+	public void setDreierPasch(int dreierPasch[]) {
+		for (int i = 0; i < dreierPasch.length; i++) {
+			DreierPasch += dreierPasch[i];
+		}
+	}
+
+	public void setViererPasch(int viererPasch[]) {
+		for (int i = 0; i < viererPasch.length; i++) {
+			ViererPasch += viererPasch[i];
+		}
+	}
+
+	public void setFullHouse(boolean fullHouse) {
+		FullHouse = fullHouse;
+	}
+
+	public void setKleineStr(boolean kleineStr) {
+		this.kleineStr = kleineStr;
+	}
+
+	public void setGroßeStr(boolean großeStr) {
+		this.großeStr = großeStr;
+	}
+
+	public void setKniffel(boolean kniffel) {
+		Kniffel = kniffel;
+	}
+
+	public void setChance(int chance[]) {
+		for (int i = 0; i < chance.length; i++) {
+			Chance = chance[i];
+		}
+	}
+
 }
