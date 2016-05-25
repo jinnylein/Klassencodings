@@ -1,0 +1,120 @@
+//Ich habe mich ein wenig mit der "GUI-Programmierung" beschäftigt, da wir dies ja auch mit einbinden sollen.
+//Das hier wäre meine Idee, wie wir bei Kniffel beginnen können.
+//Fügt den Code einfach mal in Eclipse ein und schaut es euch an, damit ihr versteht, was ich meine :)
+//FIY: Der Code ist weder fertig noch optimiert, aber jetzt könnt ihr sehen, woran ich so arbeite.
+
+import javax.swing.JOptionPane;
+
+public class Kniffel {
+
+	public static void main(String[] args) {
+		
+		new Kniffel();
+	}
+	
+	public Kniffel()
+	{
+		//Einstieg
+		JOptionPane.showMessageDialog(null, "Willkommen bei Kniffel.", "Kniffel", JOptionPane.INFORMATION_MESSAGE);
+		
+		boolean done=false;
+		while(!done)
+		{
+			done=true;
+			String[] ans=new String[8];
+		
+		
+			//1) Spieleranzahl
+			
+			String s = JOptionPane.showInputDialog("Wie viele Spieler nehmen teil?\n\nAchtung! Die Spieleranzahl muss zwischen 2 und 8 liegen.");
+			int anzahl_spieler = Integer.parseInt(s);
+		
+		
+			//2) Spielernamen
+		
+			switch(anzahl_spieler)
+			{
+			case 2:
+				ans[0] = JOptionPane.showInputDialog(null, "Name von Spieler 1.", "Spieler 1", JOptionPane.QUESTION_MESSAGE);
+				ans[1] = JOptionPane.showInputDialog(null, "Name von Spieler 2.", "Spieler 2", JOptionPane.QUESTION_MESSAGE);
+			break;
+			
+			case 3:
+				ans[0] = JOptionPane.showInputDialog(null, "Name von Spieler 1.", "Spieler 1", JOptionPane.QUESTION_MESSAGE);
+				ans[1] = JOptionPane.showInputDialog(null, "Name von Spieler 2.", "Spieler 2", JOptionPane.QUESTION_MESSAGE);
+				ans[2] = JOptionPane.showInputDialog(null, "Name von Spieler 3.", "Spieler 3", JOptionPane.QUESTION_MESSAGE);
+			break;
+			
+			case 4:
+				ans[0] = JOptionPane.showInputDialog(null, "Name von Spieler 1.", "Spieler 1", JOptionPane.QUESTION_MESSAGE);
+				ans[1] = JOptionPane.showInputDialog(null, "Name von Spieler 2.", "Spieler 2", JOptionPane.QUESTION_MESSAGE);
+				ans[2] = JOptionPane.showInputDialog(null, "Name von Spieler 3.", "Spieler 3", JOptionPane.QUESTION_MESSAGE);
+				ans[3] = JOptionPane.showInputDialog(null, "Name von Spieler 4.", "Spieler 4", JOptionPane.QUESTION_MESSAGE);
+			break;
+			
+			case 5:
+				ans[0] = JOptionPane.showInputDialog(null, "Name von Spieler 1.", "Spieler 1", JOptionPane.QUESTION_MESSAGE);
+				ans[1] = JOptionPane.showInputDialog(null, "Name von Spieler 2.", "Spieler 2", JOptionPane.QUESTION_MESSAGE);
+				ans[2] = JOptionPane.showInputDialog(null, "Name von Spieler 3.", "Spieler 3", JOptionPane.QUESTION_MESSAGE);
+				ans[3] = JOptionPane.showInputDialog(null, "Name von Spieler 4.", "Spieler 4", JOptionPane.QUESTION_MESSAGE);
+				ans[4] = JOptionPane.showInputDialog(null, "Name von Spieler 5.", "Spieler 5", JOptionPane.QUESTION_MESSAGE);
+			break;
+			
+			case 6:
+				ans[0] = JOptionPane.showInputDialog(null, "Name von Spieler 1.", "Spieler 1", JOptionPane.QUESTION_MESSAGE);
+				ans[1] = JOptionPane.showInputDialog(null, "Name von Spieler 2.", "Spieler 2", JOptionPane.QUESTION_MESSAGE);
+				ans[2] = JOptionPane.showInputDialog(null, "Name von Spieler 3.", "Spieler 3", JOptionPane.QUESTION_MESSAGE);
+				ans[3] = JOptionPane.showInputDialog(null, "Name von Spieler 4.", "Spieler 4", JOptionPane.QUESTION_MESSAGE);
+				ans[4] = JOptionPane.showInputDialog(null, "Name von Spieler 5.", "Spieler 5", JOptionPane.QUESTION_MESSAGE);
+				ans[5] = JOptionPane.showInputDialog(null, "Name von Spieler 6.", "Spieler 6", JOptionPane.QUESTION_MESSAGE);
+			break;
+			
+			case 7:
+				ans[0] = JOptionPane.showInputDialog(null, "Name von Spieler 1.", "Spieler 1", JOptionPane.QUESTION_MESSAGE);
+				ans[1] = JOptionPane.showInputDialog(null, "Name von Spieler 2.", "Spieler 2", JOptionPane.QUESTION_MESSAGE);
+				ans[2] = JOptionPane.showInputDialog(null, "Name von Spieler 3.", "Spieler 3", JOptionPane.QUESTION_MESSAGE);
+				ans[3] = JOptionPane.showInputDialog(null, "Name von Spieler 4.", "Spieler 4", JOptionPane.QUESTION_MESSAGE);
+				ans[4] = JOptionPane.showInputDialog(null, "Name von Spieler 5.", "Spieler 5", JOptionPane.QUESTION_MESSAGE);
+				ans[5] = JOptionPane.showInputDialog(null, "Name von Spieler 6.", "Spieler 6", JOptionPane.QUESTION_MESSAGE);
+				ans[6] = JOptionPane.showInputDialog(null, "Name von Spieler 7.", "Spieler 7", JOptionPane.QUESTION_MESSAGE);
+			break;
+			
+			case 8:
+				ans[0] = JOptionPane.showInputDialog(null, "Name von Spieler 1.", "Spieler 1", JOptionPane.QUESTION_MESSAGE);
+				ans[1] = JOptionPane.showInputDialog(null, "Name von Spieler 2.", "Spieler 2", JOptionPane.QUESTION_MESSAGE);
+				ans[2] = JOptionPane.showInputDialog(null, "Name von Spieler 3.", "Spieler 3", JOptionPane.QUESTION_MESSAGE);
+				ans[3] = JOptionPane.showInputDialog(null, "Name von Spieler 4.", "Spieler 4", JOptionPane.QUESTION_MESSAGE);
+				ans[4] = JOptionPane.showInputDialog(null, "Name von Spieler 5.", "Spieler 5", JOptionPane.QUESTION_MESSAGE);
+				ans[5] = JOptionPane.showInputDialog(null, "Name von Spieler 6.", "Spieler 6", JOptionPane.QUESTION_MESSAGE);
+				ans[6] = JOptionPane.showInputDialog(null, "Name von Spieler 7.", "Spieler 7", JOptionPane.QUESTION_MESSAGE);
+				ans[7] = JOptionPane.showInputDialog(null, "Name von Spieler 8.", "Spieler 8", JOptionPane.QUESTION_MESSAGE);
+			break;
+			
+			default: 
+				JOptionPane.showMessageDialog(null, "Bitte wählen Sie eine Zahl zwischen 2 und 8 aus.");
+				break;
+			}
+			
+		
+			//Confirm with user - yes, no, cancel
+		
+			int input=JOptionPane.showConfirmDialog(null, "Sind alle Daten korrekt eingegeben worden?");
+			if(input==1 || input==2)
+			{
+				done=false;
+			}
+			if(done)
+			{
+				JOptionPane.showMessageDialog(null,
+						"Kniffel beginnt mit dem nächsten Klick.\nÜberprüfen Sie allerdings vorher noch einmal alle von Ihnen eingegebenen Daten auf dessen Richtigkeit.\n" +
+						"\n\nSpieleranzahl: " + anzahl_spieler + "\n\nSpieler 1: " + ans[0] + "\nSpieler 2: " + ans[1] + "\nSpieler 3: " + ans[2] + "\nSpieler 4: " + ans[3] +
+						"\nSpieler 5 " + ans[4] + "\nSpieler 6: " + ans[5] + "\nSpieler 7: " + ans[6] + "\nSpieler 8: " + ans[7]);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "Ok, we'll start over then.");
+			}
+		}
+	}
+
+}
