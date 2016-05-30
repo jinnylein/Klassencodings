@@ -1,3 +1,5 @@
+package zweitesSemester.Projekt;
+
 public class Punktezettel {
 
 	private String name;
@@ -31,7 +33,18 @@ public class Punktezettel {
 	public int[] getPreview(int würfel[]) { // Methode die zum Anzeigen der
 											// Preview währen des Spielens und
 											// vorm auswählen angezeigt wird
-		int[] werte = new int[13];
+
+		for (int j = 0; j < würfel.length; j++) {
+			for (int i = 0; i < (würfel.length - 1); i++) {
+				if (würfel[i] > würfel[i + 1]) {
+					int hilfsvariable = würfel[i];
+					würfel[i] = würfel[i + 1];
+					würfel[i + 1] = hilfsvariable;
+				}
+			}
+		}
+
+		int[] werte = new int[13]; // Ergebnisarray
 
 		for (int j = 0; j < 6; j++) {
 			for (int i = 0; i < würfel.length; i++) {
@@ -54,7 +67,60 @@ public class Punktezettel {
 				for (int i = 0; i < würfel.length; i++) {
 					werte[6] += würfel[i];
 				}
-				break;
+			break;
+		}
+
+		// 4er Pasch
+
+		for (int j = 0; j < (würfel.length - 3); j++) {
+			count = 0;
+			for (int i = 0; i < (würfel.length - j); i++) {
+				if (würfel[j] == würfel[i + j])
+					count++;
+			}
+			if (count >= 4)
+				for (int i = 0; i < würfel.length; i++) {
+					werte[7] += würfel[i];
+				}
+			break;
+		}
+
+		// Full House
+
+		if (würfel[0] == würfel[1]) {
+			if (würfel[0] == würfel[2]) {
+				if (würfel[3] == würfel[4]) {
+					werte[8] = 25;
+				}
+			} else if (würfel[2] == würfel[3] && würfel[2] == würfel[4]) {
+				werte[8] = 25;
+			}
+		}
+
+		// kleine Straße TODO fertig machen
+
+		for (int i = 0; i < würfel.length; i++) {
+
+		}
+
+		// große Straße
+
+		if (würfel[0] == würfel[1] + 1 && würfel[1] == würfel[2] + 1
+				&& würfel[2] == würfel[3] + 1 && würfel[3] == würfel[4] + 1) {
+			werte[10] = 40;
+		}
+
+		// Kniffel
+
+		if (würfel[0] == würfel[1] && würfel[1] == würfel[2]
+				&& würfel[2] == würfel[3] && würfel[3] == würfel[4]) {
+			werte[11] = 50;
+		}
+
+		// Chance
+
+		for (int i = 0; i < würfel.length; i++) {
+			werte[12] += würfel[i];
 		}
 
 		return werte;
