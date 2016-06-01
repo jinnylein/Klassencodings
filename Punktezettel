@@ -97,10 +97,11 @@ public class Punktezettel {
 			}
 		}
 
-		// kleine Straße TODO fertig machen
+		// kleine Straße
 
-		for (int i = 0; i < würfel.length; i++) {
-
+		if ((würfel[0] == würfel[1] + 1 && würfel[1] == würfel[2] + 1 && würfel[2] == würfel[3] + 1)
+				|| (würfel[1] == würfel[2] + 1 && würfel[2] == würfel[3] + 1 && würfel[3] == würfel[4] + 1)) {
+			werte[9] = 30;
 		}
 
 		// große Straße
@@ -150,6 +151,7 @@ public class Punktezettel {
 				Einser += 1;
 			}
 		}
+		setPunkteoben(Punkteoben + Einser);
 	}
 
 	public void setZweier(int zweier[]) {
@@ -158,6 +160,7 @@ public class Punktezettel {
 				Zweier += 2;
 			}
 		}
+		setPunkteoben(Punkteoben + Zweier);
 	}
 
 	public void setDreier(int dreier[]) {
@@ -166,6 +169,7 @@ public class Punktezettel {
 				Dreier += 3;
 			}
 		}
+		setPunkteoben(Punkteoben + Dreier);
 	}
 
 	public void setVierer(int vierer[]) {
@@ -174,6 +178,7 @@ public class Punktezettel {
 				Vierer += 4;
 			}
 		}
+		setPunkteoben(Punkteoben + Vierer);
 	}
 
 	public void setFünfer(int fünfer[]) {
@@ -182,6 +187,7 @@ public class Punktezettel {
 				Fünfer += 5;
 			}
 		}
+		setPunkteoben(Punkteoben + Fünfer);
 	}
 
 	public void setSechser(int sechser[]) {
@@ -190,6 +196,7 @@ public class Punktezettel {
 				Sechser += 6;
 			}
 		}
+		setPunkteoben(Punkteoben + Sechser);
 	}
 
 	// public void setKniffelbonus(int kniffelbonus) { //TODO für den fall dass
@@ -201,34 +208,41 @@ public class Punktezettel {
 		for (int i = 0; i < dreierPasch.length; i++) {
 			DreierPasch += dreierPasch[i];
 		}
+		setPunkteunten(Punkteunten + DreierPasch);
 	}
 
 	public void setViererPasch(int viererPasch[]) {
 		for (int i = 0; i < viererPasch.length; i++) {
 			ViererPasch += viererPasch[i];
 		}
+		setPunkteunten(Punkteunten + ViererPasch);
 	}
 
 	public void setFullHouse(boolean fullHouse) {
 		FullHouse = fullHouse;
+		setPunkteunten(Punkteunten + 25);
 	}
 
 	public void setKleineStr(boolean kleineStr) {
 		this.kleineStr = kleineStr;
+		setPunkteunten(Punkteunten + 30);
 	}
 
 	public void setGroßeStr(boolean großeStr) {
 		this.großeStr = großeStr;
+		setPunkteunten(Punkteunten + 40);
 	}
 
 	public void setKniffel(boolean kniffel) {
 		Kniffel = kniffel;
+		setPunkteunten(Punkteunten + 50);
 	}
 
 	public void setChance(int chance[]) {
 		for (int i = 0; i < chance.length; i++) {
 			Chance = chance[i];
 		}
+		setPunkteunten(Punkteunten + Chance);
 	}
 
 }
