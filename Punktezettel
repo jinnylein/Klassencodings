@@ -2,6 +2,9 @@ package zweitesSemester.Projekt;
 
 public class Punktezettel {
 
+// Hier kommen die Attribute
+
+	// Attribute oben
 	private String name;
 
 	private int Einser;
@@ -25,9 +28,9 @@ public class Punktezettel {
 	private int Punkteunten;
 	private int Gesamtpunkte;
 
-	public Punktezettel(String name) {
-		super();
-		this.name = name;
+
+	public Punkte(String spielername) {
+		this.name = spielername;
 	}
 
 	public int[] getPreview(int würfel[]) { // Methode die zum Anzeigen der
@@ -46,12 +49,16 @@ public class Punktezettel {
 
 		int[] werte = new int[13]; // Ergebnisarray
 
+		// oberer Teil: einfache Zahlen
 		for (int j = 0; j < 6; j++) {
 			for (int i = 0; i < würfel.length; i++) {
 				if (würfel[i] == (j + 1)) {
 					werte[j] += (j + 1); // oberer Teil wird befüllt
 				}
+
 			}
+			System.out.println(werte[j]);
+
 		}
 
 		// 3er Pasch
@@ -67,6 +74,7 @@ public class Punktezettel {
 				for (int i = 0; i < würfel.length; i++) {
 					werte[6] += würfel[i];
 				}
+			System.out.println(werte[6]);
 			break;
 		}
 
@@ -82,6 +90,7 @@ public class Punktezettel {
 				for (int i = 0; i < würfel.length; i++) {
 					werte[7] += würfel[i];
 				}
+			System.out.println(werte[7]);
 			break;
 		}
 
@@ -95,6 +104,7 @@ public class Punktezettel {
 			} else if (würfel[2] == würfel[3] && würfel[2] == würfel[4]) {
 				werte[8] = 25;
 			}
+			System.out.println(werte[8]);
 		}
 
 		// kleine Straße
@@ -103,27 +113,29 @@ public class Punktezettel {
 				|| (würfel[1] == würfel[2] + 1 && würfel[2] == würfel[3] + 1 && würfel[3] == würfel[4] + 1)) {
 			werte[9] = 30;
 		}
+		System.out.println(werte[9]);
 
 		// große Straße
 
-		if (würfel[0] == würfel[1] + 1 && würfel[1] == würfel[2] + 1
-				&& würfel[2] == würfel[3] + 1 && würfel[3] == würfel[4] + 1) {
+		if (würfel[0] == würfel[1] + 1 && würfel[1] == würfel[2] + 1 && würfel[2] == würfel[3] + 1
+				&& würfel[3] == würfel[4] + 1) {
 			werte[10] = 40;
 		}
+		System.out.println(werte[10]);
 
 		// Kniffel
 
-		if (würfel[0] == würfel[1] && würfel[1] == würfel[2]
-				&& würfel[2] == würfel[3] && würfel[3] == würfel[4]) {
+		if (würfel[0] == würfel[1] && würfel[1] == würfel[2] && würfel[2] == würfel[3] && würfel[3] == würfel[4]) {
 			werte[11] = 50;
 		}
+		System.out.println(werte[11]);
 
 		// Chance
 
 		for (int i = 0; i < würfel.length; i++) {
 			werte[12] += würfel[i];
 		}
-
+		System.out.println(werte[12]);
 		return werte;
 	}
 
@@ -245,4 +257,14 @@ public class Punktezettel {
 		setPunkteunten(Punkteunten + Chance);
 	}
 
+	public int getGesamtpunkte() {
+		return Gesamtpunkte;
+	}
+
+	public int compareTo(Punkte vergleichsperson) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
+
